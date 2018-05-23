@@ -1,0 +1,6 @@
+host:  xxx.yyy.us-east-1.redshift.amazonaws.com
+port: 5439
+user: your_user
+password: your_pass
+sslmode: require
+database: master
