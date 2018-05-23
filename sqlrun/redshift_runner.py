@@ -5,7 +5,7 @@ import time
 class RedshiftRunner:
 
     def run_file(self, file):
-        """Implements the connection public interface"""
+        """Implements the runner public interface"""
         
         stat = Stat()
         stat.set_start_time = int(time.time())
