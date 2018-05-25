@@ -4,13 +4,9 @@ import time
 
 class RedshiftRunner:
 
-    def run_file(self, file):
+    def execute_sql(self, sql):
         """Implements the runner public interface"""
-        
-        stat = Stat()
-        stat.set_start_time = int(time.time())
-        stat.set_end_time = int(time.time())
-        return stat
+        return True
 
     def __init__(self, host, port, user, password, sslmode, database):
         pass

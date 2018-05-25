@@ -1,13 +1,26 @@
 class Stat:
 
-    def __init__(self):
+    def __init__(self, sql):
+        self._sql = sql
         self._start_time = None
         self._end_time = None
 
-    def set_start_time(self, start_time):
-        self._start_time = start_time
+    @property
+    def sql(self):
+        return self._sql
 
-    def set_end_time(self, end_time):
-        self._end_time = end_time
+    @property
+    def start_time(self):
+        return self._start_time
 
+    @property
+    def end_time(self):
+        return self._end_time
 
+    @start_time.setter
+    def start_time(self, value):
+        self._start_time = value
+
+    @end_time.setter
+    def end_time(self, value):
+        self._end_time = value
