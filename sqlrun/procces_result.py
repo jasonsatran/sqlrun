@@ -1,4 +1,4 @@
-class Stat:
+class ProcessResult:
 
     def __init__(self, sql):
         self._sql = sql
