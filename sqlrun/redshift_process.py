@@ -4,12 +4,6 @@ class RedshiftProcess:
         self._process_result = None
         self._command_text = command_text
 
-    # @staticmethod
-    # def load_file(f):
-        # with open(f):
-            # s = f.read()
-        # return s
-
     @property
     def process_result(self):
         return self._process_result
@@ -21,6 +15,10 @@ class RedshiftProcess:
 
     def run(self, redshift_processor):
         self.process_result = redshift_processor.process(self)
+
+    @property
+    def command_text(self):
+        return self._command_text
 
 
     # def run_file(self, file_path):
