@@ -1,9 +1,8 @@
 class RedshiftProcess:
 
-    def __init__(self, command_text, redshift_processor):
+    def __init__(self, command_text):
         self._process_result = None
         self._command_text = command_text
-        self._redshift_processor = redshift_processor
 
     # @staticmethod
     # def load_file(f):
@@ -20,8 +19,8 @@ class RedshiftProcess:
         self._process_result = value
 
 
-    def run(self):
-        self.process_result = self._redshift_processor.process(self)
+    def run(self, redshift_processor):
+        self.process_result = redshift_processor.process(self)
 
 
     # def run_file(self, file_path):

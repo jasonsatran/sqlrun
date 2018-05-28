@@ -6,4 +6,4 @@ class Container:
 
     def run(self):
         for process in self._processes:
-            process.run()
+            process.run(self._processor)
