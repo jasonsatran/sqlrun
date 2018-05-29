@@ -14,9 +14,12 @@ Utility to run a series of Redshift scripts.
 
 # Backlog
 
-## Redshift Processor
+## Use yaml in main
 
-- execute_process() requires concrete implementation with setting of results
+- use yaml to read in configuration
+    - include path to files
+
+## Main implementation
 
 ## Tests for Container
 
