@@ -1,13 +1,22 @@
+import time
+
 class ProcessResult:
 
-    def __init__(self, sql):
-        self._sql = sql
-        self._start_time = None
+    def __init__(self):
+        self._start_time = time.time()
         self._end_time = None
+        self._description = None
 
-    @property
-    def sql(self):
-        return self._sql
+    def set_end_time(self):
+        self._end_time = time.time()
+
+    @property 
+    def description(self):
+        return self._description
+
+    @description.setter
+    def description(self, value):
+        self._description = value
 
     @property
     def start_time(self):
