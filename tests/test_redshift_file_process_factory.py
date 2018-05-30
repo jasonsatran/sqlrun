@@ -16,6 +16,7 @@ class MainTest(unittest.TestCase):
         processes = RedshiftFileProcessFactory.load_from_dir(abs_path)
         self.assertEqual(2, len(processes))
         self.assertEqual(processes[0].command_text, "select 1;\n")
+        self.assertEqual(processes[0].description, "file1.sql")
 
 if __name__ == '__main__':
     unittest.main()

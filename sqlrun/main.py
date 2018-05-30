@@ -24,15 +24,9 @@ def main():
         sys.exit(1)
 
     redshift_processor = processor = RedshiftProcessor(host, port, user, password, sslmode, database)
-
     sql_files = RedshiftFileProcessFactory.load_from_dir(pathtosqlfiles) 
-
     container = Container(redshift_processor, sql_files)
-
     container.run()
-
-
-
 
 def validate_input():
     if len(sys.argv) != 2:
@@ -49,7 +43,6 @@ def validate_input():
     except:
         raise Exception("can not process expected yaml file: {}".format(path_to_config))
 
-
     return yaml_obj
     
 def get_config_val(data, key):
@@ -58,7 +51,6 @@ def get_config_val(data, key):
         errStr = "key not found: " + key
         raise Exception(errStr)
     return value
-
 
 if __name__ == "__main__":
     main()

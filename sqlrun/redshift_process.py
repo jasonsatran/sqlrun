@@ -2,7 +2,16 @@ class RedshiftProcess:
 
     def __init__(self, command_text):
         self._process_result = None
+        self._description = None
         self._command_text = command_text
+
+    @property
+    def description(self):
+        return self._description
+
+    @description.setter
+    def description(self, value):
+        self._description = value
 
     @property
     def process_result(self):
