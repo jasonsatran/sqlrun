@@ -9,22 +9,23 @@ Utility to run a series of Redshift scripts.
 
 ## Set Up
 
+### Redshift
+
     pip3 install -r ./requirements.txt
-    cp config_example.yaml config.yaml
+    cp recshift_config_example.yaml redshift_config.yaml
+
+### Other Databases
+
+- todo
 
 # Backlog
 
-## Use yaml in main
-
-- use yaml to read in configuration
-    - include path to files
-
 ## Main implementation
 
-## Tests for Container
+- implemented but needs to be tested
 
-- container should loop through all processes
+## Create Reports
 
-## Text Reporter
+- loop through all processes and create a table of process results
 
 - requires an implementaiton.  it should take a list of process results and implement a report() function that formats a text table.
