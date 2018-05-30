@@ -4,4 +4,4 @@ user: your_user
 password: your_pass
 sslmode: require
 database: master
-path_to_files: /path/to/files
+pathtosqlfiles: /path/to/files

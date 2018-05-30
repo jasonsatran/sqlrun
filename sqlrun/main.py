@@ -11,19 +11,27 @@ def main():
     except Exception as e:
         print("error loading configuration file, ", e)
         sys.exit(1)
-
-    print(yaml)
     try:
+        host = get_config_val(yaml, "host")
+        sslmode = get_config_val(yaml, "sslmode")
         port = get_config_val(yaml, "port")
         user = get_config_val(yaml, "user")
         password = get_config_val(yaml, "password")
         database = get_config_val(yaml, "database")
-        path_to_files = get_config_val(yaml, "path_to_files")
+        pathtosqlfiles = get_config_val(yaml, "pathtosqlfiles")
     except Exception as e:
         print("error reading configuration values, ", e)
         sys.exit(1)
 
-    print("in main")
+    redshift_processor = processor = RedshiftProcessor(host, port, user, password, sslmode, database)
+
+    sql_files = RedshiftFileProcessFactory.load_from_dir(pathtosqlfiles) 
+
+    container = Container(redshift_processor, sql_files)
+
+    container.run()
+
+
 
 
 def validate_input():
