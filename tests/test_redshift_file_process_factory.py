@@ -1,6 +1,6 @@
 import unittest
 import os
-from sqlrun.redshift_process_factory import RedshiftFileProcessFactory
+from sqlrun.redshift.redshift_process_factory import RedshiftFileProcessFactory
 
 
 

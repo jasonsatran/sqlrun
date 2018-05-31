@@ -1,4 +1,4 @@
-from sqlrun.redshift_process import RedshiftProcess
+from sqlrun.redshift.redshift_process import RedshiftProcess
 import glob
 import os
 

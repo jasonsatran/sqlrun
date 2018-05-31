@@ -1,6 +1,6 @@
 import unittest
 from sqlrun.process_result import ProcessResult
-from sqlrun.redshift_process import RedshiftProcess
+from sqlrun.redshift.redshift_process import RedshiftProcess
 from sqlrun.process_report import ProcessReport
 
 class MainTest(unittest.TestCase):
