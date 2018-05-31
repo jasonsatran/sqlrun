@@ -10,6 +10,9 @@ class ProcessResult:
     def set_end_time(self):
         self._end_time = time.time()
 
+    def running_time(self):
+        self.end_time - self.start_time
+
     @property 
     def description(self):
         return self._description
