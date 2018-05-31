@@ -11,7 +11,7 @@ class ProcessResult:
         self._end_time = time.time()
 
     def running_time(self):
-        self.end_time - self.start_time
+        return self.end_time - self.start_time
 
     @property 
     def description(self):

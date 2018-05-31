@@ -9,9 +9,10 @@ class MainTest(unittest.TestCase):
         result1 = ProcessResult()
         result2 = ProcessResult()
 
-        result1._start_time = 100  #accessing a private member for the purpose of testing
+        #_start_time is private and is accessed here only for testing purposes
+        result1._start_time = 100
         result1._end_time = 200
-        result2._start_time = 100  #accessing a private member for the purpose of testing
+        result2._start_time = 100
         result2._end_time = 400
 
         process1 = RedshiftProcess("select 1;")
@@ -28,17 +29,10 @@ class MainTest(unittest.TestCase):
         reporter = ProcessReport(processes)
 
         report = reporter.get_report()
-
-        # print('\n\n', report, '\n\n')
-
-        expected = """
- step      process desc                            running_time (seconds)
-------------------------------------------------------------------------
-1         a select statement                      None
-2         another select statement                None
-        """
-
-        # self.assertEqual(report.strip(), expected.strip())
+        
+        self.assertEqual(report[0],  "step      process desc                            running_time (seconds)")
+        self.assertEqual(report[2].strip(),  "1         a select statement                      100")
+        self.assertEqual(report[3].strip(),  "2         another select statement                300")
 
 
 if __name__ == '__main__':

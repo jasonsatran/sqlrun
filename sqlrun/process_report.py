@@ -15,8 +15,10 @@ class ProcessReport:
             process_result = process.process_result
             report_row.append(template.format(str(i), process.description, str(process_result.running_time())))
             i += 1
-        return '\n'.join(report_row)
+        return report_row
 
     def print(self):
-        print(self.get_report())
+        rpt = self.get_report()
+        formatted_rpt = "\n".join(rpt)
+        print(formatted_rpt)
 
