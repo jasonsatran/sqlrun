@@ -1,6 +1,6 @@
 import unittest
 from sqlrun.process_result import ProcessResult
-from sqlrun.redshift.redshift_process import RedshiftProcess
+from sqlrun.generic_process import GenericProcess
 from sqlrun.process_report import ProcessReport
 
 class MainTest(unittest.TestCase):
@@ -15,8 +15,8 @@ class MainTest(unittest.TestCase):
         result2._start_time = 100
         result2._end_time = 400
 
-        process1 = RedshiftProcess("select 1;")
-        process2 = RedshiftProcess("select 2;")
+        process1 = GenericProcess("select 1;")
+        process2 = GenericProcess("select 2;")
 
         process1.description = "a select statement"
         process2.description = "another select statement"

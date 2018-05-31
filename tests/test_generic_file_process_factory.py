@@ -1,6 +1,6 @@
 import unittest
 import os
-from sqlrun.redshift.redshift_process_factory import RedshiftFileProcessFactory
+from sqlrun.generic_process_factory import GenericFileProcessFactory
 
 
 
@@ -13,7 +13,7 @@ class MainTest(unittest.TestCase):
         this_file_dir = os.path.dirname(__file__)
         test_file_path = os.path.join(this_file_dir, relative_resource_path)
         abs_path = os.path.abspath(test_file_path)
-        processes = RedshiftFileProcessFactory.load_from_dir(abs_path)
+        processes = GenericFileProcessFactory.load_from_dir(abs_path)
         self.assertEqual(2, len(processes))
         self.assertEqual(processes[0].command_text, "select 1;\n")
         self.assertEqual(processes[0].description, "file1.sql")

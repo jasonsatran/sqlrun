@@ -3,7 +3,7 @@ import os
 import sys
 from sqlrun.container import Container
 from sqlrun.redshift.redshift_processor import RedshiftProcessor
-from sqlrun.redshift.redshift_process_factory import RedshiftFileProcessFactory
+from sqlrun.generic_process_factory import GenericFileProcessFactory
 
 def main():
     try:
@@ -24,7 +24,7 @@ def main():
         sys.exit(1)
 
     redshift_processor = processor = RedshiftProcessor(host, port, user, password, sslmode, database)
-    sql_files = RedshiftFileProcessFactory.load_from_dir(pathtosqlfiles) 
+    sql_files = GenericFileProcessFactory.load_from_dir(pathtosqlfiles) 
     container = Container(redshift_processor, sql_files)
     container.run()
 

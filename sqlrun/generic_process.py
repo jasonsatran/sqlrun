@@ -1,4 +1,4 @@
-class RedshiftProcess:
+class GenericProcess:
 
     def __init__(self, command_text):
         self._process_result = None
@@ -28,14 +28,3 @@ class RedshiftProcess:
     @property
     def command_text(self):
         return self._command_text
-
-
-    # def run_file(self, file_path):
-        # """runs a sql file
-        # returns a Stat object
-        # """
-
-        # with open(file_path) as f:
-            # sql = f.read()
-
-        # return self.run_sql(sql)
