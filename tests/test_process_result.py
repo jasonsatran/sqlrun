@@ -31,8 +31,8 @@ class MainTest(unittest.TestCase):
         report = reporter.get_report()
         
         self.assertEqual(report[0],  "step      process desc                            running_time (seconds)")
-        self.assertEqual(report[2].strip(),  "1         a select statement                      100")
-        self.assertEqual(report[3].strip(),  "2         another select statement                300")
+        self.assertEqual(report[2].strip(),  "1         a select statement                      100.0000")
+        self.assertEqual(report[3].strip(),  "2         another select statement                300.0000")
 
 
 if __name__ == '__main__':

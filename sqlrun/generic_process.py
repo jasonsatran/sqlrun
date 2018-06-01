@@ -1,7 +1,9 @@
+from sqlrun.process_result import ProcessResult
+
 class GenericProcess:
 
     def __init__(self, command_text):
-        self._process_result = None
+        self.process_result = None
         self._description = None
         self._command_text = command_text
 
@@ -21,9 +23,8 @@ class GenericProcess:
     def process_result(self, value):
         self._process_result = value
 
-
-    def run(self, redshift_processor):
-        self.process_result = redshift_processor.process(self)
+    def run(self, abstract_processor):
+        self.process_result = abstract_processor.execute_process(self)
 
     @property
     def command_text(self):

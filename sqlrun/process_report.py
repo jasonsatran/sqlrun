@@ -3,6 +3,10 @@ class ProcessReport:
     def __init__(self, processes):
         self._processes = processes
 
+    @staticmethod
+    def format_second(sec):
+	    return "{:.4f}".format(sec)
+
     def get_report(self):
         template = "{:10}{:40}{:20}"
         header = template.format("step","process desc", "running_time (seconds)")
@@ -13,7 +17,14 @@ class ProcessReport:
         i = 1
         for process in self._processes:
             process_result = process.process_result
-            report_row.append(template.format(str(i), process.description, str(process_result.running_time())))
+            # print(type(process))
+            # print(type(process_result))
+            # print(process_result.running_time())
+            if process_result == None:
+                report_row.append(template.format(str(i), process.description, "No Result"))
+            else:
+                report_row.append(template.format(str(i), process.description, ProcessReport.format_second(process_result.running_time())))
+                
             i += 1
         return report_row
 

@@ -9,7 +9,7 @@ class MainTest(unittest.TestCase):
     # is the relative path the path to this file or the path where python was started
     def test_it_loads_from_dir(self):
 
-        relative_resource_path = "../tests/resources"
+        relative_resource_path = "../tests/resources/redshift"
         this_file_dir = os.path.dirname(__file__)
         test_file_path = os.path.join(this_file_dir, relative_resource_path)
         abs_path = os.path.abspath(test_file_path)
