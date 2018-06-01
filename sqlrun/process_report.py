@@ -13,7 +13,14 @@ class ProcessReport:
         i = 1
         for process in self._processes:
             process_result = process.process_result
-            report_row.append(template.format(str(i), process.description, str(process_result.running_time())))
+            print(type(process))
+            print(type(process_result))
+            print(process_result.running_time())
+            if process_result == None:
+                report_row.append(template.format(str(i), process.description, "No Result"))
+            else:
+                report_row.append(template.format(str(i), process.description, str(process_result.running_time())))
+                
             i += 1
         return report_row
 

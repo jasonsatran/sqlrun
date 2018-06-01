@@ -1,4 +1,4 @@
-import unittest
+import unittest 
 from sqlrun.generic_process import GenericProcess
 
 class MainTest(unittest.TestCase):
@@ -9,5 +9,3 @@ class MainTest(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-
-

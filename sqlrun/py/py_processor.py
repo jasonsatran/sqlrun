@@ -5,7 +5,6 @@ class PyProcessor:
     def execute_process(self, generic_process):
         process_result = ProcessResult()
         generic_process.process_result = process_result
-
         try:
             exec(generic_process.command_text)
             process_result.set_end_time()
