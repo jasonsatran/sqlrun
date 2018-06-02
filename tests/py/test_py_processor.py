@@ -4,21 +4,22 @@ from sqlrun.py.py_processor import PyProcessor
 from sqlrun.generic_process import GenericProcess
 from sqlrun.process_result import ProcessResult
 
+class PyProcessTest(unittest.TestCase):
 
-
-class MainTest(unittest.TestCase):
-
-    # is the relative path the path to this file or the path where python was started
-
-    def test_it_sets_result_times(self):
-        processor = PyProcessor()
+    @staticmethod
+    def test_python_process():
         command = "print('hello world')"
         process = GenericProcess(command)
+        return process
+
+    def test_it_executes_arbitrary_command(self):
+        processor = PyProcessor()
+        process = PyProcessTest.test_python_process()
+        processor.execute_process(process)
+
+    def test_it_mutates_process_result(self):
+        processor = PyProcessor()
+        process = PyProcessTest.test_python_process()
         processor.execute_process(process)
         self.assertIsNotNone(process.process_result.start_time)
         self.assertIsNotNone(process.process_result.end_time)
-
-if __name__ == '__main__':
-    unittest.main()
-
-
