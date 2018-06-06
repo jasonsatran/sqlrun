@@ -1,1 +1,1 @@
-select 2;
+select RANDOM() as random_number;

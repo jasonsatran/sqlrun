@@ -13,13 +13,14 @@ class RedshiftProcessor:
             conn = psycopg2.connect(host=self._host,  port=self._port , user=self._user,  password=self._password, sslmode=self._ssl_mode, database=self._database)
             cur = conn.cursor()
             cur.execute(redshift_process.command_text)
-            process_result.result_description = cur.fetchall()[0][0]
+            process_result.output = str(cur.fetchall()[0][0])
             process_result.set_end_time()
         except:
             raise
         finally:
-            #print("Closing Connection")
             cur.close()
+            conn.close()
+        return process_result
 
 
     def __init__(self, host, port, user, password, ssl_mode, database):

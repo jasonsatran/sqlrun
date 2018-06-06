@@ -1,10 +1,25 @@
 # duckrun
 
-- Under Development.
 - Utility to run a series of scripts and report the running times.  
-- Initial support is planned for Redshift and Python.
+- Initial support is for Redshift and Python.
+- work in progress
 
-## Sample Output
+## Redshift setup
+
+- copy the config file and input your secrets.  An example config file can be found in the project root.
+
+`cp redshift_config.yaml redshift_config.yaml`
+
+- configure the yaml file with your settings
+- execute the following using your config
+
+`python redshift_run.py redshift_config.yaml`
+
+## Python Demo
+
+`make intagrationTest`
+
+## Resdhift Sample Output
 
 `$ python tests/integration_test/python_process_integration.py`
 
@@ -14,7 +29,7 @@ SUMMARY
 
 start_time          end_time            processes      local_start_time    local_end_time
 _______________________________________________________________________________________________
-1528256959.273771   1528256959.2744598  2              06/05/18 23:49      06/05/18 23:49
+1528339130.748658   1528339131.1300669  2              06/06/18 22:38      06/06/18 22:38
 
 
 
@@ -25,22 +40,21 @@ DETAIL
 
 step      process desc                            running_time (seconds)                  percent of total time
 __________________________________________________________________________________________________________________________________
-1         01_hello.py                             0.0001                                  8.3
-2         02_exp.py                               0.0006                                  91.7
+1         file1.sql                               0.1877                                  49.3
+2         file2.sql                               0.1934                                  50.7
 
 
 STD OUT
 
 
-01_hello.py
+file1.sql
 --------------------
-hello world
+1
 
 
-
-02_exp.py
+file2.sql
 --------------------
-[No Standard Output]
+0.79304793653686
 
 ````
 
@@ -52,14 +66,12 @@ hello world
 
 ## Set Up
 
-### Redshift
+- add duckrun to your python path
+- install depdendencies
+    - `pip3 install -r ./requirements.txt`
+ - configure YAML
+    - `cp redshift_config_example.yaml redshift_config.yaml`
 
-    pip3 install -r ./requirements.txt
-    cp redshift_config_example.yaml redshift_config.yaml
-
-### Other Databases
-
-- todo
 
 # Backlog
 
@@ -71,7 +83,6 @@ hello world
 
 - post report results to S3
 
-### redshift
+### Column headers to sql results
 
-- extend for redshift usage
-
+- sql results in stdout should show col headers
