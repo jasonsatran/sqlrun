@@ -6,6 +6,8 @@
 
 ## Sample Output
 
+`$ python tests/integration_test/python_process_integration.py`
+
 ````
 SUMMARY
 
