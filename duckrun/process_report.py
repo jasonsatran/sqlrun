@@ -46,7 +46,7 @@ class ProcessReport:
             if out.strip() == "":
                 standard_out.append("[No Standard Output]")
             else:
-                standard_out.append(str(len(out)))
+                standard_out.append(str(out))
             standard_out.append('\n')
 
         return standard_out
