@@ -3,6 +3,7 @@ import time
 
 from duckrun.process_result import ProcessResult
 
+
 class RedshiftProcessor:
 
     def execute_process(self, redshift_process):
@@ -10,8 +11,11 @@ class RedshiftProcessor:
         redshift_process.process_result = process_result
 
         try:
-            conn = psycopg2.connect(host=self._host,  port=self._port , user=self._user,  password=self._password, sslmode=self._ssl_mode, database=self._database)
+            conn = psycopg2.connect(host=self._host,  port=self._port, user=self._user,
+                                    password=self._password, sslmode=self._ssl_mode, database=self._database)
             cur = conn.cursor()
+
+            cur.execute("SET enable_result_cache_for_session TO off;")
             cur.execute(redshift_process.command_text)
             process_result.output = str(cur.fetchall()[0][0])
             process_result.set_end_time()
@@ -22,7 +26,6 @@ class RedshiftProcessor:
             conn.close()
         return process_result
 
-
     def __init__(self, host, port, user, password, ssl_mode, database):
         self._host = host
         self._port = port
@@ -31,4 +34,5 @@ class RedshiftProcessor:
         self._ssl_mode = ssl_mode
         self._database = database
 
-        self._connection = psycopg2.connect(host=self._host,  port=self._port , user=self._user,  password=self._password, sslmode=self._ssl_mode, database=self._database)
+        self._connection = psycopg2.connect(host=self._host,  port=self._port, user=self._user,
+                                            password=self._password, sslmode=self._ssl_mode, database=self._database)
