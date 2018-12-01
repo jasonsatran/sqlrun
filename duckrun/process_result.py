@@ -1,5 +1,6 @@
 import time
 
+
 class ProcessResult:
 
     all_process_total_running_time = 0
@@ -22,11 +23,11 @@ class ProcessResult:
     def percent_of_total(self):
         return self._running_time/ProcessResult.all_process_total_running_time * 100
 
-    @property 
+    @property
     def running_time(self):
         return self._running_time
 
-    @property 
+    @property
     def description(self):
         return self._description
 

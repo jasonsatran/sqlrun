@@ -4,6 +4,7 @@ from duckrun.py.py_processor import PyProcessor
 from duckrun.generic_process import GenericProcess
 from duckrun.process_result import ProcessResult
 
+
 class PyProcessTest(unittest.TestCase):
 
     @staticmethod

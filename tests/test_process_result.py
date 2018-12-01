@@ -3,13 +3,14 @@ from duckrun.process_result import ProcessResult
 from duckrun.generic_process import GenericProcess
 from duckrun.process_report import ProcessReport
 
+
 class MainTest(unittest.TestCase):
 
     def test_result_report_runs(self):
         result1 = ProcessResult()
         result2 = ProcessResult()
 
-        #_start_time is private and is accessed here only for testing purposes
+        # _start_time is private and is accessed here only for testing purposes
         result1._start_time = 100
         result1.end_time = 200
         result2._start_time = 100
@@ -30,12 +31,14 @@ class MainTest(unittest.TestCase):
 
         report = reporter.get_report()
 
-        self.assertEqual(report[0].strip(),  "step      process desc                            running_time (seconds)                  percent of total time")
+        self.assertEqual(report[0].strip(
+        ),  "step      process desc                            running_time (seconds)                  percent of total time")
 
+        self.assertEqual(report[2].strip(
+        ),  "1         a select statement                      100.0000                                25.0")
 
-        self.assertEqual(report[2].strip(),  "1         a select statement                      100.0000                                25.0")
-
-        self.assertEqual(report[3].strip(),  "2         another select statement                300.0000                                75.0")
+        self.assertEqual(report[3].strip(
+        ),  "2         another select statement                300.0000                                75.0")
 
     def test_calling_set_end_time_sets_end_time_and_percent_of_total(self):
         result1 = ProcessResult()
@@ -48,6 +51,6 @@ class MainTest(unittest.TestCase):
         percent_of_total_type = type(result1.percent_of_total())
         self.assertEqual(str(percent_of_total_type), "<class 'float'>")
 
+
 if __name__ == '__main__':
     unittest.main()
-

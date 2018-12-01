@@ -1,5 +1,6 @@
 from duckrun.process_result import ProcessResult
 
+
 class GenericProcess:
 
     def __init__(self, command_text):

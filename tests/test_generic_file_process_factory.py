@@ -3,7 +3,6 @@ import os
 from duckrun.generic_process_factory import GenericFileProcessFactory
 
 
-
 class MainTest(unittest.TestCase):
 
     # is the relative path the path to this file or the path where python was started
@@ -15,9 +14,10 @@ class MainTest(unittest.TestCase):
         abs_path = os.path.abspath(test_file_path)
         processes = GenericFileProcessFactory.load_from_dir(abs_path)
         self.assertEqual(2, len(processes))
-        self.assertEqual(processes[0].command_text, "select 1 as column_a, 2 as column_b;\n")
+        self.assertEqual(processes[0].command_text,
+                         "select 1 as column_a, 2 as column_b;\n")
         self.assertEqual(processes[0].description, "file1.sql")
+
 
 if __name__ == '__main__':
     unittest.main()
-

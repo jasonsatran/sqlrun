@@ -4,6 +4,8 @@ from io import StringIO
 import contextlib
 
 # source:  https://stackoverflow.com/questions/3906232
+
+
 @contextlib.contextmanager
 def stdoutIO(stdout=None):
     old = sys.stdout
@@ -12,6 +14,7 @@ def stdoutIO(stdout=None):
     sys.stdout = stdout
     yield stdout
     sys.stdout = old
+
 
 class PyProcessor:
 
